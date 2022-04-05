@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordGenerator"
         mc:Ignorable="d"
-        Title="PasswordGenerator" Height="450" Width="800">
-    <Grid Cursor="Arrow" Background="#FFF3C690">
-        <Button x:Name="BtnGenerator" Content="Click here to generate" HorizontalAlignment="Center" Height="65" Margin="0,326,0,0" VerticalAlignment="Top" Width="242" RenderTransformOrigin="0.5,0.5" FontSize="18" Click="BtnGenerator_Click" Background="Red" FontWeight="Bold">
+        Title="PasswordGenerator" Height="450" Width="800"
+        Icon="Ikona.ico">
+    <Grid Background="#FFF3C690">
+        <Button x:Name="BtnGenerator" Cursor="Hand" Content="Click here to generate" HorizontalAlignment="Center" Height="65" Margin="0,326,0,0" VerticalAlignment="Top" Width="242" RenderTransformOrigin="0.5,0.5" FontSize="18" Click="BtnGenerator_Click" Background="Red" FontWeight="Bold">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -17,9 +18,13 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <TextBox x:Name="PasswdLength" HorizontalAlignment="Left" Height="39" Margin="320,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="208" FontSize="20"/>
-        <TextBox x:Name="PasswdDisplay" HorizontalAlignment="Center" Height="261" Margin="0,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="780" Background="#FFF9C5C5" IsReadOnly="True"/>
+        <TextBox x:Name="PasswdLength" Cursor="Help" HorizontalAlignment="Left" Height="39" Margin="320,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="208" FontSize="20"/>
+        <TextBox x:Name="PasswdDisplay" Cursor="Pen" HorizontalAlignment="Center" Height="261" Margin="0,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="780" Background="#FFF9C5C5" IsReadOnly="True"/>
         <TextBlock HorizontalAlignment="Left" Margin="24,280,0,0" TextWrapping="Wrap" Text="Enter password length to the textbox -->" VerticalAlignment="Top" Width="291" Height="39" FontSize="16"/>
+        <CheckBox x:Name="FileSaveCheck" Content="Check this to save password to file" HorizontalAlignment="Left" Margin="558,282,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="OnlyNumbers" Cursor="Hand" Content="Click to use only numbers" HorizontalAlignment="Left" Margin="558,304,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="OnlyCapChars" Cursor="Hand" Content="Click to use only Capital chars" HorizontalAlignment="Left" Margin="558,324,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="All" Cursor="Hand" Content="Click to use all" HorizontalAlignment="Left" Margin="558,344,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

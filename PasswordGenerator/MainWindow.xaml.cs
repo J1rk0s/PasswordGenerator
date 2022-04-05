@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Collections.Generic;
+using System.IO;
 
 namespace PasswordGenerator
 {
@@ -8,17 +9,38 @@ namespace PasswordGenerator
     {
         public MainWindow()
         {
-            InitializeComponent();
+           InitializeComponent();
         }
+        
+        // Global variables
+        public string passwdn;
 
+        // Method for button
         private void BtnGenerator_Click(object sender, RoutedEventArgs e)
         {
+            int startAscii;
+            int endAscii;
+            if (All.IsChecked == false && OnlyCapChars.IsChecked == false && OnlyNumbers.IsChecked == true)
+            {
+                startAscii = 48;
+                endAscii = 57;
+            }
+            else if(All.IsChecked == false && OnlyCapChars.IsChecked == true && OnlyNumbers.IsChecked == false)
+            {
+                startAscii = 65;
+                endAscii = 90;
+            }
+            else if(All.IsChecked == true && OnlyCapChars.IsChecked == false && OnlyNumbers.IsChecked == false)
+            {
+                startAscii = 33;
+                endAscii = 126;
+            }
             List<char> chars = new List<char>();
 
             var rd = new Random();
 
             // Getting password length
-            int length = Int32.Parse(PasswdLength.Text);
+            int length = int.Parse(PasswdLength.Text);
             char[] pwd = new char[length];
 
             // Getting symbols from ascii codes
@@ -35,7 +57,15 @@ namespace PasswordGenerator
 
             // Joining symbols from pwd and displaying them
             string pwdStr = new string(pwd);
-            PasswdDisplay.Text = pwdStr;
+            passwdn = pwdStr;
+            PasswdDisplay.Text = passwdn;
+
+            // Check to save to file
+            if (FileSaveCheck.IsChecked == true)
+            {
+                File.WriteAllText(@"C:/Users/" + Environment.UserName + "/Desktop/Nigga.txt",passwdn);
+            }
+
         }
     }
 }
