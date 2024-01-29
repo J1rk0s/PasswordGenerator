@@ -44,7 +44,7 @@ namespace PasswordGenerator
             char[] pwd = new char[length];
 
             // Getting symbols from ascii codes
-            for (int i = 33; i < 123; i++)
+            for (int i = startAscii; i <= endAscii; i++)
             {
                 chars.Add(Convert.ToChar(i));
             }
@@ -63,7 +63,7 @@ namespace PasswordGenerator
             // Check to save to file
             if (FileSaveCheck.IsChecked == true)
             {
-                File.WriteAllText(@"C:/Users/" + Environment.UserName + "/Desktop/Nigga.txt",passwdn);
+                File.WriteAllText(@"C:/Users/" + Environment.UserName + "/Desktop/passwords_generated.txt",passwdn);
             }
 
         }
